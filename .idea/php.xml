@@ -1,37 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+  <component name="LaravelPint">
+    <laravel_pint_settings>
+      <LaravelPintConfiguration tool_path="$PROJECT_DIR$/project/vendor/bin/pint" />
+    </laravel_pint_settings>
   </component>
-  <component name="ChangeListManager">
-    <list default="true" id="5a4069b5-0f5d-4e83-beba-c98ffee3392b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/project/app/Application/Commands/TestCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Application/Commands/TestCommandHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Domain/Test/Entities/Test.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Domain/Test/Repositories/TestRepositoryInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Domain/Test/Services/TestService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Http/Controllers/TestController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Infrastructure/Repositories/TestUserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Models/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/bootstrap/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/welcome.blade.php" beforeDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
+  <component name="MessDetectorOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/project/composer.json</pharConfigPath>
-    <execution />
+  <component name="PHPCSFixerOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="PHPCodeSnifferOptionsConfiguration">
+    <option name="highlightLevel" value="WARNING" />
+    <option name="transferred" value="true" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+  <component name="PhpCodeSniffer">
+    <phpcs_settings>
+      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="16c319c7-439f-4ed6-9730-7ddc8e675c2a" timeout="30000" />
+    </phpcs_settings>
+  </component>
+  <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/project/vendor/composer" />
       <path value="$PROJECT_DIR$/project/vendor/psr/event-dispatcher" />
@@ -145,83 +134,33 @@
       <path value="$PROJECT_DIR$/project/vendor/nunomaduro/termwind" />
       <path value="$PROJECT_DIR$/project/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/project/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/project/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/project/vendor/phpstan/extension-installer" />
+      <path value="$PROJECT_DIR$/project/vendor/iamcal/sql-parser" />
+      <path value="$PROJECT_DIR$/project/vendor/nunomaduro/larastan" />
     </include_path>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="37pO6AY06ESLarZlZa4JwD30HVm" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
+  <component name="PhpStan">
+    <PhpStan_settings>
+      <PhpStanConfiguration tool_path="$PROJECT_DIR$/project/vendor/bin/phpstan" />
+      <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="16c319c7-439f-4ed6-9730-7ddc8e675c2a" timeout="60000" />
+    </PhpStan_settings>
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="PhpStanOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/sebastian/moje-p/laravel-simple/project/app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/project/app" />
-      <recent name="$PROJECT_DIR$/project/routes" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docker" />
-      <recent name="$PROJECT_DIR$/docker/php" />
-    </key>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/project/phpunit.xml" custom_loader_path="$PROJECT_DIR$/project/vendor/autoload.php" use_configuration_file="true" />
+    </phpunit_settings>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner configuration_file="$PROJECT_DIR$/project/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
-      <method v="2" />
-    </configuration>
+  <component name="Psalm">
+    <Psalm_settings>
+      <psalm_fixer_by_interpreter asDefaultInterpreter="true" interpreter_id="16c319c7-439f-4ed6-9730-7ddc8e675c2a" timeout="60000" />
+    </Psalm_settings>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.29346.151" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="5a4069b5-0f5d-4e83-beba-c98ffee3392b" name="Changes" comment="" />
-      <created>1767596367589</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1767596367589</updated>
-      <workItem from="1767596368717" duration="362000" />
-      <workItem from="1767597035388" duration="5238000" />
-      <workItem from="1767611654362" duration="2810000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="github-copilot-workspace">
-    <instructionFileLocations>
-      <option value=".github/instructions" />
-    </instructionFileLocations>
-    <promptFileLocations>
-      <option value=".github/prompts" />
-    </promptFileLocations>
+  <component name="PsalmOptionsConfiguration">
+    <option name="transferred" value="true" />
   </component>
 </project>

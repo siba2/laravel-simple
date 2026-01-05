@@ -29,3 +29,6 @@ key:
 	docker compose exec $(APP_CONTAINER) php artisan key:generate
 install:
 	docker compose exec $(APP_CONTAINER) composer install
+
+phpstan:
+	docker compose exec $(APP_CONTAINER) vendor/bin/phpstan analyse
