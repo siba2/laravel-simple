@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-
 namespace App\Application\Product\Command;
 
-use App\Domain\Shared\ValueObject\Currency;
-use App\Domain\Shared\ValueObject\Money;
+use App\Application\Product\DTO\CreateProductDTO;
 
 final readonly class CreateProductCommand
 {
     public function __construct(
-        public string $name,
-        public Money $price,
-        public Currency $currency
+        public readonly CreateProductDTO $dto
     ) {}
+
+    public function __invoke($dto): void
+    {
+     dump('3');
+    }
 }

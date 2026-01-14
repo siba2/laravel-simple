@@ -6,27 +6,28 @@ declare(strict_types=1);
 namespace App\Application\Product\Handler;
 
 use App\Application\Product\Command\CreateProductCommand;
+use App\Application\Product\Service\ProductService;
 use App\Domain\Product\Entity\Product;
 use App\Domain\Product\ValueObject\ProductId;
 
-final class CreateProductHandler
+final readonly class CreateProductHandler
 {
     public function __construct(private ProductService $service)
     {
-
     }
 
     public function handle(CreateProductCommand $command): Product
     {
+        $dto = $command->dto;
         $id = ProductId::generate();
 
         $product = Product::create(
             id: $id,
-            name: $command->name,
-            price: $command->price
+            name: $dto->name,
+            price: $dto->price
         );
 
-        $this->service->save($product);
+        $this->service->create($product);
 
         return $product;
     }

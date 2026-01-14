@@ -16,7 +16,7 @@ final readonly class CreateProductDTO
     ) {}
 
     public static function fromArray(array $data): self
-    {dump(11);
+    {
         $price = new Money((int) $data['price'] * 100, Currency::fromArray($data['currency']));
 
         return new self($data['name'], $price);
