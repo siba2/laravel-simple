@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Order;
+namespace App\Http\Requests\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,10 +22,9 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'customerId' => 'required',
-            'items' => 'required',
-            'items.*.productId' => ['required'],
-            'items.*.quantity' => ['required', 'integer', 'min:1'],
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'price' => ['required'],
+            "currency" => ['required', 'string'],
         ];
     }
 }
