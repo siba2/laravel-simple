@@ -1,24 +1,22 @@
+networks:
+  laravel_net:
+
 services:
   app:
+    user: "${UID:-1000}:${GID:-1000}"
     build:
       context: .
       dockerfile: php/Dockerfile
-      args:
-        USER_ID: ${UID:-1000}
-        GROUP_ID: ${GID:-1000}
     container_name: laravel_app_new
     working_dir: /var/www/html
     volumes:
       - ../project:/var/www/html
     ports:
       - "8000:80"
-    environment:
-      - USER_ID=${UID:-1000}
-      - GROUP_ID=${GID:-1000}
-      - APACHE_RUN_USER=#1000
-      - APACHE_RUN_GROUP=#1000
     depends_on:
       - db
+    networks:
+      - laravel_net
 
   db:
     image: mariadb:11
@@ -33,6 +31,8 @@ services:
       - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
+    networks:
+      - laravel_net
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -42,10 +42,13 @@ services:
       - "8080:80"
     environment:
       PMA_HOST: db
+      PMA_PORT: 3306
       PMA_USER: laravel
       PMA_PASSWORD: laravel
     depends_on:
       - db
+    networks:
+      - laravel_net
 
 volumes:
   db_data:
