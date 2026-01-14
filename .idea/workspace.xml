@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a4069b5-0f5d-4e83-beba-c98ffee3392b" name="Changes" comment="" />
+    <list default="true" id="5a4069b5-0f5d-4e83-beba-c98ffee3392b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/project/app/Application/Customer/CreateCustomerCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Application/Customer/DTO/CreateCustomerDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Http/Controllers/CustomerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Http/Requests/Customer/CreateRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/Command/CreateProductCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/Command/CreateProductCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/ProductController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,40 +155,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/sebastian/moje-p/laravel-simple/project/app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "PHP Script.OrderId.php.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/sebastian/moje-p/laravel-simple/project/app/Application/Customer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "php.override.implement.member.chooser.php.doc": "NONE",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/project/app" />
-      <recent name="$PROJECT_DIR$/project/routes" />
+      <recent name="$PROJECT_DIR$/project/app/Application/Customer" />
+      <recent name="$PROJECT_DIR$/project/app/Http/Requests" />
+      <recent name="$PROJECT_DIR$/project/app/Domain/Product" />
+      <recent name="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent" />
+      <recent name="$PROJECT_DIR$/project/app/Application/Product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/project/app/Application/Order" />
       <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$/docker/php" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.ProductId.php">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/project/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
     </configuration>
+    <configuration name="ProductId.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/project/app/Domain/Product/ValueObject/ProductId.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.ProductId.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -205,6 +225,7 @@
       <workItem from="1767944260680" duration="3613000" />
       <workItem from="1767947967393" duration="2834000" />
       <workItem from="1768374466543" duration="28000" />
+      <workItem from="1768374826183" duration="11688000" />
     </task>
     <servers />
   </component>

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Application\Product\Command;
+namespace App\Application\Customer;
 
 use App\Application\Product\DTO\CreateCustomerDTO;
 
-final readonly class CreateProductCommand
+final readonly class CreateCustomerCommand
 {
     public function __construct(
         public readonly CreateCustomerDTO $dto
