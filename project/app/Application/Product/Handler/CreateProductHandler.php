@@ -6,13 +6,13 @@ declare(strict_types=1);
 namespace App\Application\Product\Handler;
 
 use App\Application\Product\Command\CreateProductCommand;
-use App\Application\Product\Service\ProductService;
+use App\Application\Product\Service\CustomerService;
 use App\Domain\Product\Entity\Product;
 use App\Domain\Product\ValueObject\ProductId;
 
 final readonly class CreateProductHandler
 {
-    public function __construct(private ProductService $service)
+    public function __construct(private CustomerService $service)
     {
     }
 

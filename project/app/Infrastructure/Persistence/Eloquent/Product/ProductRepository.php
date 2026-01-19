@@ -17,7 +17,7 @@ final class ProductRepository implements ProductRepositoryInterface
             'id' => $product->id()->value(),
             'name' => $product->name(),
             'amount' => $product->price()->amount(),
-            'currency' => $product->price()->currency()
+            'currency' => $product->price()->currency(),
         ]);
 
         $model->save();

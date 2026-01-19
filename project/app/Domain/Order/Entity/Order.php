@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Order\Entity;
 
+use App\Domain\Customer\Entity\Customer;
 use App\Domain\Customer\ValueObject\CustomerId;
 use App\Domain\Order\ValueObject\OrderId;
 use App\Domain\Product\Entity\Product;
@@ -15,10 +16,16 @@ final class Order
     /** @var OrderProduct[] */
     private array $products = [];
 
-    public function __construct(
+    private function __construct(
         private OrderId $id,
         private Customer $customer,
     ) {}
+
+
+    public static function create(OrderId $id, Customer $customer): self
+    {
+        return new self($id, $customer);
+    }
 
     public function id(): OrderId
     {
@@ -47,5 +54,10 @@ final class Order
         }
 
         return $total;
+    }
+
+    public function getCustomer(): Customer
+    {
+        return $this->customer;
     }
 }

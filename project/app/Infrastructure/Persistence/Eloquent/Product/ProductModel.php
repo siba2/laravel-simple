@@ -8,7 +8,7 @@ use App\Domain\Shared\ValueObject\Currency;
 use App\Domain\Shared\ValueObject\Money;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductModel extends Model
+final class ProductModel extends Model
 {
     protected $table = 'products';
 

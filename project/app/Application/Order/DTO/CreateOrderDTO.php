@@ -12,7 +12,7 @@ final readonly class CreateOrderDTO
     public function __construct(
         public CustomerId $customerId,
         /** @var OrderItemDTO[] */
-        public array $products,
+        public array $items,
     ) {}
 
     public static function fromArray(array $data): self

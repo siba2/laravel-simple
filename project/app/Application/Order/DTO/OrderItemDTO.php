@@ -12,7 +12,7 @@ final readonly class OrderItemDTO
 {
     public function __construct(
         public ProductId $productId,
-        public int       $quantity,
+        public int $quantity,
     ) {
         if ($quantity <= 0) {//todo
             throw new InvalidArgumentException('Quantity must be > 0');
