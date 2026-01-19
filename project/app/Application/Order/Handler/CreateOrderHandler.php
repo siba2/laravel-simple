@@ -13,6 +13,7 @@ use App\Application\Order\Service\OrderService;
 use App\Application\Product\Service\ProductService;
 use App\Domain\Order\Entity\Order;
 use App\Domain\Order\ValueObject\OrderId;
+use App\Domain\Order\ValueObject\OrderStatus;
 
 final readonly class CreateOrderHandler
 {
@@ -38,7 +39,8 @@ final readonly class CreateOrderHandler
         $id = OrderId::generate();
         $order = Order::create(
             id: $id,
-            customer: $customer
+            customer: $customer,
+            status: OrderStatus::PENDING
         );
 
         $errors = [];
@@ -59,6 +61,6 @@ final readonly class CreateOrderHandler
 
         $this->service->create($order);
 
-        return $customer;
+        return $order;
     }
 }

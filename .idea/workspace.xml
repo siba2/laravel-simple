@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a4069b5-0f5d-4e83-beba-c98ffee3392b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/project/app/Application/Customer/CreateCustomerCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Application/Customer/DTO/CreateCustomerDTO.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Http/Controllers/CustomerController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/app/Http/Requests/Customer/CreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/Command/CreateProductCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/Command/CreateProductCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/ProductController.php" afterDir="false" />
-    </list>
+    <list default="true" id="5a4069b5-0f5d-4e83-beba-c98ffee3392b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,7 +157,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/sebastian/moje-p/laravel-simple/project/app/Application/Customer",
+    "last_opened_file_path": "/home/sebastian/moje-p/laravel-simple/project/app/Application/Order",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -177,11 +170,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/project/app/Application/Order" />
+      <recent name="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent" />
+      <recent name="$PROJECT_DIR$/project/app/Domain/Customer" />
       <recent name="$PROJECT_DIR$/project/app/Application/Customer" />
       <recent name="$PROJECT_DIR$/project/app/Http/Requests" />
-      <recent name="$PROJECT_DIR$/project/app/Domain/Product" />
-      <recent name="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent" />
-      <recent name="$PROJECT_DIR$/project/app/Application/Product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/project/app/Application/Order" />
@@ -226,6 +219,7 @@
       <workItem from="1767947967393" duration="2834000" />
       <workItem from="1768374466543" duration="28000" />
       <workItem from="1768374826183" duration="11688000" />
+      <workItem from="1768806651168" duration="3455000" />
     </task>
     <servers />
   </component>
