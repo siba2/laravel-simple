@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 
-namespace App\Domain\Order\ValueObject;
+namespace App\Application\Order\DTO;
+
+use App\Domain\Order\ValueObject\OrderStatus;
 
 final class OrderFilter
 {

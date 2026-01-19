@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Eloquent\Order;
 
-use App\Domain\Order\ValueObject\OrderFilter;
+use App\Application\Order\DTO\OrderFilter;
 use App\Domain\Order\ValueObject\OrderStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;

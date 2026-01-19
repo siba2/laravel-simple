@@ -5,11 +5,12 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Eloquent\Customer;
 
+use App\Application\Customer\DTO\CustomerFilter;
 use App\Domain\Customer\Entity\Customer;
-use App\Domain\Customer\Reader\ProductReaderInterface;
+use App\Domain\Customer\Reader\CustomerReaderInterface;
 use App\Domain\Customer\ValueObject\CustomerId;
 
-final class CustomerReader implements ProductReaderInterface
+final class CustomerReader implements CustomerReaderInterface
 {
 
     public function find(CustomerId $id): ?Customer
@@ -17,8 +18,8 @@ final class CustomerReader implements ProductReaderInterface
         return CustomerModel::find($id);
     }
 
-    public function getAll(): array
+    public function getAll(CustomerFilter $filter): array
     {
-        return CustomerModel::filter()->get();
+        return CustomerModel::filter($filter);
     }
 }

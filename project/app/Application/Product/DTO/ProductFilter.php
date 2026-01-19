@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 
-namespace App\Domain\Customer\ValueObject;
+namespace App\Application\Product\DTO;
 
-final class CustomerFilter
+final class ProductFilter
 {
     public ?string $search;
     public int $perPage;
