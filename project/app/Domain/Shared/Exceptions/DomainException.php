@@ -10,8 +10,8 @@ use Exception;
 class DomainException extends Exception
 {
     public function __construct(
-        public ApplicationErrorCode $codeEnum,
-        string                      $message = ""
+        public DomainErrorCode $codeEnum,
+        string $message = ""
     ) {
         $message = $message ?: $codeEnum->value;
         parent::__construct($message);

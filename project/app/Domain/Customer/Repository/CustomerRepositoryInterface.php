@@ -9,6 +9,6 @@ interface CustomerRepositoryInterface
 {
     public function save(Customer $customer): void;
     public function find(CustomerId $id): ?Customer;
-    public function delete(Customer $customer): void;
+    public function remove(Customer $customer): void;
 
 }

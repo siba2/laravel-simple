@@ -17,7 +17,7 @@ final readonly class CreateCustomerHandler
     {
     }
 
-    public function handle(CreateCustomerCommand $command): Product
+    public function handle(CreateCustomerCommand $command): CustomerId
     {
         $dto = $command->dto;
         $id = CustomerId::generate();
@@ -30,6 +30,6 @@ final readonly class CreateCustomerHandler
 
         $this->service->create($customer);
 
-        return $customer;
+        return $id;
     }
 }

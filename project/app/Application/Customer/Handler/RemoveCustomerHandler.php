@@ -5,17 +5,17 @@ declare(strict_types=1);
 
 namespace App\Application\Customer\Handler;
 
-use App\Application\Customer\Command\UpdateCustomerCommand;
+use App\Application\Customer\Command\RemoveCustomerCommand;
 use App\Application\Customer\Service\CustomerService;
 use App\Application\Customer\Exceptions\CustomerNotFoundException;
 
-final readonly class UpdateCustomerHandler //todo interface
+final readonly class RemoveCustomerHandler //todo interface
 {
     public function __construct(private CustomerService $service)
     {
     }
 
-    public function handle(UpdateCustomerCommand $command): void
+    public function handle(RemoveCustomerCommand $command): void
     {
         $dto = $command->dto;
 
@@ -25,10 +25,8 @@ final readonly class UpdateCustomerHandler //todo interface
             throw new CustomerNotFoundException($dto->id);
         }
 
-        $this->service->update(
+        $this->service->remove(
             customer: $customer,
-            name: $dto->name,
-            email: $dto->email
         );
     }
 }

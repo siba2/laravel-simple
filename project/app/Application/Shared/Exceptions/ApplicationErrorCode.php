@@ -7,4 +7,5 @@ namespace App\Application\Shared\Exceptions;
 
 enum ApplicationErrorCode: string
 {
+    case CUSTOMER_NOT_FOUND = 'customer.not_found';
 }

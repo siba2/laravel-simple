@@ -4,11 +4,11 @@ namespace App\Domain\Customer\Entity;
 
 use App\Domain\Customer\ValueObject\CustomerId;
 use App\Domain\Shared\ValueObject\Email;
-use DomainException;
 
 final class Customer
 {
     private bool $active;
+    private \DateTimeImmutable $deleted;
 
     private function __construct(private CustomerId $id, private string $name, private Email $email)
     {
@@ -47,21 +47,22 @@ final class Customer
         return $this->active;
     }
 
-    public function deactivate(): void
+    public function update(
+        string $name,
+        Email $email,
+    ): void
     {
-        if (! $this->active) {//todo
-            throw new DomainException('Customer is already deactivated.');
-        }
-
-        $this->active = false;
+        $this->name = $name;
+        $this->email = $email;
     }
 
-    public function changeEmail(Email $newEmail): void
+    public function remove(): void
     {
-        if ($this->email->equals($newEmail)) {//todo
-            throw new DomainException('Email is the same as current.');
-        }
+        $this->deleted = new \DateTimeImmutable();
+    }
 
-        $this->email = $newEmail;
+    public function getDeleted(): \DateTimeImmutable
+    {
+        return $this->deleted;
     }
 }

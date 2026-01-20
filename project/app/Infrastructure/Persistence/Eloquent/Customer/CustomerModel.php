@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Eloquent\Customer;
 
-use App\Application\Product\DTO\ProductFilter;
+use App\Application\Customer\DTO\CustomerFilter;
+use App\Domain\Customer\Entity\Customer;
+use App\Domain\Customer\ValueObject\CustomerId;
+use App\Domain\Shared\ValueObject\Email;
 use Illuminate\Database\Eloquent\Model;
 
 final class CustomerModel extends Model
@@ -18,16 +21,29 @@ final class CustomerModel extends Model
         'id',
         'name',
         'email',
-        'active'
+        'active',
+        'deleted'
     ];
 
-    public function scopeFilter($query, ProductFilter $filter)
+    public function scopeFilter($query, CustomerFilter $filter)
     {
+        $query->where('deleted', null);
+
         if ($filter->search) {
             $query->where('id', 'like', "%{$filter->search}%")
                 ->orWhere('customer_id', 'like', "%{$filter->search}%");
         }
 
         return $query;
+    }
+
+    public static function mapToEntity(CustomerModel $model): Customer
+    {
+        return Customer::from(
+            id: CustomerId::fromString($model->id),
+            name: $model->name,
+            email: Email::fromString($model->email),
+            active: (bool) $model->active
+        );
     }
 }

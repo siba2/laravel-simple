@@ -8,7 +8,7 @@ use App\Domain\Customer\ValueObject\CustomerId;
 
 interface CustomerReaderInterface
 {
-    public function find(CustomerId $id): ?Customer;
+    public function find(CustomerId $id): ?array;
     public function getAll(CustomerFilter $filter): array;
 
 }

@@ -5,7 +5,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('order')->group(function () {
+Route::prefix('orders')->group(function () {
     Route::get('/', [OrderController::class, 'getAll']);
     Route::post('/', [OrderController::class, 'store']);
     Route::get('/{id}', [OrderController::class, 'show']);
@@ -13,7 +13,7 @@ Route::prefix('order')->group(function () {
     Route::delete('/{id}', [OrderController::class, 'remove']);
 });
 
-Route::prefix('product')->group(function () {
+Route::prefix('products')->group(function () {
     Route::get('/', [ProductController::class, 'getAll']);
     Route::post('/', [ProductController::class, 'store']);
     Route::get('/{id}', [ProductController::class, 'show']);
@@ -21,7 +21,7 @@ Route::prefix('product')->group(function () {
     Route::delete('/{id}', [ProductController::class, 'remove']);
 });
 
-Route::prefix('customer')->group(function () {
+Route::prefix('customers')->group(function () {
     Route::get('/', [CustomerController::class, 'getAll']);
     Route::post('/', [CustomerController::class, 'store']);
     Route::get('/{id}', [CustomerController::class, 'show']);
