@@ -8,7 +8,7 @@ use App\Domain\Shared\ValueObject\Email;
 final class Customer
 {
     private bool $active;
-    private \DateTimeImmutable $deleted;
+    private \DateTimeImmutable $deletedAt;
 
     private function __construct(private CustomerId $id, private string $name, private Email $email)
     {
@@ -58,11 +58,11 @@ final class Customer
 
     public function remove(): void
     {
-        $this->deleted = new \DateTimeImmutable();
+        $this->deletedAt = new \DateTimeImmutable();
     }
 
-    public function getDeleted(): \DateTimeImmutable
+    public function getDeletedAt(): \DateTimeImmutable
     {
-        return $this->deleted;
+        return $this->deletedAt;
     }
 }

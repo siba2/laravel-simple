@@ -22,12 +22,12 @@ final class CustomerModel extends Model
         'name',
         'email',
         'active',
-        'deleted'
+        'deletedAt'
     ];
 
     public function scopeFilter($query, CustomerFilter $filter)
     {
-        $query->where('deleted', null);
+        $query->where('deletedAt', null);
 
         if ($filter->search) {
             $query->where('id', 'like', "%{$filter->search}%")

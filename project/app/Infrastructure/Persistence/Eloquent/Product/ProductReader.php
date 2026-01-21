@@ -5,21 +5,29 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Eloquent\Product;
 
-use App\Domain\Customer\Entity\Customer;
-use App\Domain\Customer\Reader\ProductReaderInterface;
-use App\Domain\Customer\ValueObject\CustomerId;
-use App\Infrastructure\Persistence\Eloquent\Customer\CustomerModel;
+use App\Application\Product\DTO\ProductFilter;
+use App\Domain\Product\Reader\ProductReaderInterface;
+use App\Domain\Product\ValueObject\ProductId;
 
 final class ProductReader implements ProductReaderInterface
 {
 
-    public function find(CustomerId $id): ?Customer
+    public function find(ProductId $id): ?array
     {
-        return CustomerModel::find($id);
+        $model = ProductModel::find($id);
+
+        if ($model === null) {
+            return null;
+        }
+
+        return $model->toArray();
     }
 
-    public function getAll(): array
+    public function getAll(ProductFilter $filter): array
     {
-        return CustomerModel::filter()->get();
+        return ProductModel::query()
+            ->filter($filter)
+            ->get()
+            ->toArray();
     }
 }

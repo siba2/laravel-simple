@@ -13,23 +13,38 @@ final class ProductRepository implements ProductRepositoryInterface
 {
     public function save(Product $product): void
     {
-        $model = ProductModel::create([
-            'id' => $product->id()->value(),
-            'name' => $product->name(),
-            'amount' => $product->price()->amount(),
-            'currency' => $product->price()->currency(),
-        ]);
+        $model = ProductModel::updateOrCreate(
+            ['id' => $product->id()->value()],
+            [
+                'name' => $product->name(),
+                'amount' => $product->price()->amount(),
+                'currency' => $product->price()->currency()
+            ]
+        );
 
         $model->save();
     }
 
     public function find(ProductId $id): ?Product
     {
-       return null;
+        $model = ProductModel::find($id->value());
+
+        if (!$model) {
+            return null;
+        }
+
+        return ProductModel::mapToEntity($model);
     }
 
-    public function delete(Product $product): void
+    public function remove(Product $product): void
     {
-        // TODO: Implement delete() method.
+        $model = ProductModel::updateOrCreate(
+            ['id' => $product->id()->value()],
+            [
+                'deletedAt' => $product->getDeletedAt()
+            ]
+        );
+
+        $model->save();
     }
 }

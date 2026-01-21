@@ -17,4 +17,9 @@ final class ProductFilter
         $this->perPage = (int)($data['per_page'] ?? 15);
         $this->page = (int)($data['page'] ?? 1);
     }
+
+    public static function fromArray(array $data): self
+    {
+        return new self($data);
+    }
 }

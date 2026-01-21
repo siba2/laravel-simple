@@ -33,7 +33,7 @@ final readonly class CustomerService
         $this->repository->save($customer);
     }
 
-    public function remove(Customer $customer)
+    public function remove(Customer $customer): void
     {
         $customer->remove();
 

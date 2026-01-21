@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a4069b5-0f5d-4e83-beba-c98ffee3392b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/project/app/Application/Product/Command/RemoveProductCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Application/Product/DTO/RemoveProductDTO.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Application/Product/Exceptions/ProductNotFoundException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Application/Product/Handler/GetAllProductHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Application/Product/Handler/GetProductHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Application/Product/Handler/RemoveProductHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/app/Http/Requests/Product/UpdateRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Customer/Query/GetCustomerQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Customer/Service/CustomerService.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Customer/Service/CustomerService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/DTO/ProductFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/DTO/ProductFilter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/DTO/UpdateProductDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/DTO/UpdateProductDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/Handler/UpdateProductHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/Handler/UpdateProductHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/Query/GetAllProductQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/Query/GetAllProductQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/Query/GetProductQuery.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/Service/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/Service/ProductService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Shared/Exceptions/ApplicationErrorCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Shared/Exceptions/ApplicationErrorCode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Customer/Entity/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Customer/Entity/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Product/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Product/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Product/Reader/ProductReaderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Product/Reader/ProductReaderInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Product/Repository/ProductRepositoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Product/Repository/ProductRepositoryInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent/Customer/CustomerModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent/Customer/CustomerModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/database/migrations/2026_01_14_085806_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/database/migrations/2026_01_14_085806_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/database/migrations/2026_01_14_090005_create_customers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/database/migrations/2026_01_14_090005_create_customers_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,6 +255,8 @@
       <workItem from="1768806651168" duration="3455000" />
       <workItem from="1768812026915" duration="8094000" />
       <workItem from="1768892490598" duration="6000" />
+      <workItem from="1768905128361" duration="6083000" />
+      <workItem from="1768978558328" duration="2084000" />
     </task>
     <servers />
   </component>

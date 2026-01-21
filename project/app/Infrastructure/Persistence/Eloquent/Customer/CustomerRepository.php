@@ -37,18 +37,15 @@ final class CustomerRepository implements CustomerRepositoryInterface
         return CustomerModel::mapToEntity($model);
     }
 
-    public function delete(Customer $customer): void
-    {
-        // TODO: Implement delete() method.
-    }
-
     public function remove(Customer $customer): void
     {
         $model = CustomerModel::updateOrCreate(
             ['id' => $customer->id()->value()],
             [
-                'deleted' => $customer->getDeleted()
+                'deletedAt' => $customer->getDeletedAt()
             ]
         );
+
+        $model->save();
     }
 }

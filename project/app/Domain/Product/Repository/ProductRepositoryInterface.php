@@ -9,6 +9,6 @@ interface ProductRepositoryInterface
 {
     public function save(Product $product): void;
     public function find(ProductId $id): ?Product;
-    public function delete(Product $product): void;
+    public function remove(Product $product): void;
 
 }

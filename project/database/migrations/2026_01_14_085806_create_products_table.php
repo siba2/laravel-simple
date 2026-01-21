@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('amount');
             $table->char('currency', 3);
+            $table->dateTime('deletedAt')->nullable()->default(null);
             $table->timestamps();
         });
     }

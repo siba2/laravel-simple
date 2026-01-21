@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\Product\Query;
 
-use App\Application\Customer\DTO\CreateCustomerDTO;
-use App\Application\Customer\Query\GetCustomerDTO;
+use App\Application\Product\DTO\ProductFilter;
 
 final readonly class GetAllProductQuery
 {
     public function __construct(
-        public GetCustomerDTO $dto
+        public ProductFilter $filter
     ) {}
 }
