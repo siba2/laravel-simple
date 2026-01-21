@@ -6,6 +6,8 @@ declare(strict_types=1);
 namespace App\Infrastructure\Persistence\Eloquent\Order;
 
 use App\Application\Order\DTO\OrderFilter;
+use App\Domain\Order\Entity\Order;
+use App\Domain\Order\ValueObject\OrderId;
 use App\Domain\Order\ValueObject\OrderStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -46,5 +48,14 @@ final class OrderModel extends Model
         }
 
         return $query;
+    }
+
+    public static function mapToEntity(OrderModel $model): Order
+    {
+        return Order::from(
+            id: OrderId::fromString($model->id),
+            customer: $model->customer_id,
+            status: $model->status,
+        );
     }
 }

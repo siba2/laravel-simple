@@ -16,7 +16,6 @@ final class Order
     /** @var OrderProduct[] */
     private array $products = [];
 
-
     private function __construct(
         private OrderId $id,
         private Customer $customer,
@@ -29,6 +28,15 @@ final class Order
         Customer $customer,
         OrderStatus $status
     ): self
+    {
+        return new self($id, $customer, $status);
+    }
+
+    public static function from(
+        OrderId $id,
+        Customer $customer,
+        OrderStatus $status
+    ):self
     {
         return new self($id, $customer, $status);
     }
