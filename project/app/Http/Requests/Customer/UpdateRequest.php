@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Customer;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiRequest;
 
-class UpdateRequest extends FormRequest
+class UpdateRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.

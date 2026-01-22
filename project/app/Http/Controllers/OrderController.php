@@ -11,6 +11,7 @@ use App\Application\Order\DTO\CreateOrderDTO;
 use App\Application\Order\DTO\OrderFilter;
 use App\Application\Shared\Exceptions\ApplicationException;
 use App\Http\Requests\Order\CreateRequest;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 final class OrderController extends ApiController
@@ -25,19 +26,23 @@ final class OrderController extends ApiController
         return $this->apiSuccess($orders);
     }
 
-    public function store(CreateRequest $request, CreateOrderInterface $command)
+    public function store(CreateRequest $request, CreateOrderInterface $command): JsonResponse
     {
-        $dto = CreateOrderDTO::fromArray($request->validated());
+        dump(1);
+//        $dto = CreateOrderDTO::fromArray($request->validated());
+//
+//        try {
+//            $orderId = ($command)($dto);
+//
+//        } catch (CustomerNotFoundException|ProductNotFoundException $exception) {
+//
+//            return $this->apiError($exception->getMessage());
+//        }
 
-        try {
-            $orderId = ($command)($dto);
 
-        } catch (CustomerNotFoundException|ProductNotFoundException $exception) {
+        //return $this->apiCreated($orderId->value());
 
-            return $this->apiError($exception->getMessage());
-        }
-
-        return $this->apiCreated($orderId->value());
+        return $this->apiSuccess();
     }
 
     public function show(string $id, GetOrderInterface $query)
