@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 final class OrderController extends ApiController
 {
 
-    public function getAll(Request $request, GetAllOrdersInterface $query)
+    public function getAll(Request $request, GetAllOrdersInterface $query): JsonResponse
     {
         $filter = OrderFilter::fromArray($request->query());
 
@@ -28,24 +28,21 @@ final class OrderController extends ApiController
 
     public function store(CreateRequest $request, CreateOrderInterface $command): JsonResponse
     {
-        dump(1);
-//        $dto = CreateOrderDTO::fromArray($request->validated());
-//
-//        try {
-//            $orderId = ($command)($dto);
-//
-//        } catch (CustomerNotFoundException|ProductNotFoundException $exception) {
-//
-//            return $this->apiError($exception->getMessage());
-//        }
 
+        $dto = CreateOrderDTO::fromArray($request->validated());
 
-        //return $this->apiCreated($orderId->value());
+        try {
+            $orderId = ($command)($dto);
 
-        return $this->apiSuccess();
+        } catch (CustomerNotFoundException|ProductNotFoundException $exception) {
+
+            return $this->apiError($exception->getMessage());
+        }
+
+        return $this->apiCreated($orderId->value());
     }
 
-    public function show(string $id, GetOrderInterface $query)
+    public function show(string $id, GetOrderInterface $query): JsonResponse
     {
         try{
             $order = ($query)($id);
@@ -58,13 +55,13 @@ final class OrderController extends ApiController
         return $this->apiSuccess($order);
     }
 
-    public function update(string $id)
+    public function update(string $id): JsonResponse
     {
-
+        return $this->apiSuccess();
     }
 
-    public function remove(string $id)
+    public function remove(string $id): JsonResponse
     {
-
+        return $this->apiSuccess();
     }
 }

@@ -40,7 +40,7 @@ final readonly class CreateOrderCommand implements CreateOrderInterface
             status: OrderStatus::PENDING
         );
 
-        $order = $this->addProducts($order, $dto);
+       // $order = $this->addProducts($order, $dto);
 
         $this->service->create($order);
 
