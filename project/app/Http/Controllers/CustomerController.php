@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Application\Customer\Command\CreateCustomerCommand;
-use App\Application\Customer\Command\RemoveCustomerCommand;
-use App\Application\Customer\Command\UpdateCustomerCommand;
+use App\API\Command\CreateCustomerInterface;
+use App\API\Command\RemoveCustomerInterface;
+use App\API\Command\UpdateCustomerInterface;
+use App\API\Query\GetAllCustomersInterface;
+use App\API\Query\GetCustomerInterface;
 use App\Application\Customer\DTO\CreateCustomerDTO;
 use App\Application\Customer\DTO\CustomerFilter;
 use App\Application\Customer\DTO\RemoveCustomerDTO;
 use App\Application\Customer\DTO\UpdateCustomerDTO;
-use App\Application\Customer\Handler\CreateCustomerHandler;
-use App\Application\Customer\Handler\GetAllCustomerHandler;
-use App\Application\Customer\Handler\GetCustomerHandler;
-use App\Application\Customer\Handler\RemoveCustomerHandler;
-use App\Application\Customer\Handler\UpdateCustomerHandler;
-use App\Application\Customer\Query\GetAllCustomerQuery;
+use App\Application\Customer\Exceptions\CustomerNotFoundException;
+use App\Application\Shared\Exceptions\ApplicationException;
+use App\Domain\Shared\Exceptions\DomainException;
 use App\Http\Requests\Customer\CreateRequest;
 use App\Http\Requests\Customer\UpdateRequest;
 use Illuminate\Http\Request;
@@ -22,49 +21,67 @@ use Illuminate\Http\Request;
 final class CustomerController extends ApiController
 {
 
-    public function getAll(Request $request, GetAllCustomerHandler $handler)
+    public function getAll(Request $request, GetAllCustomersInterface $query)
     {
         $filter = CustomerFilter::fromArray($request->query());
 
-        $query = new GetAllCustomerQuery($filter);
-        $customers = $handler->handle($query);
+        $customers = ($query)($filter);
 
         return $this->apiSuccess($customers);
     }
 
-    public function store(CreateRequest $request, CreateCustomerHandler $handler)
+    public function store(CreateRequest $request, CreateCustomerInterface $command)
     {
-        $dto = CreateCustomerDTO::fromArray($request->validated());
+        try {
+            $dto = CreateCustomerDTO::fromArray($request->validated());
 
-        $command = new CreateCustomerCommand($dto);
-        $customerId = $handler->handle($command);
+        }catch (DomainException $exception){
+
+            return $this->apiUnprocessableEntity($exception->getMessage());
+        }
+
+        $customerId = ($command)($dto);
 
         return $this->apiCreated(['id' => $customerId->value()]);
     }
 
-    public function show(string $id, GetCustomerHandler $handler)
+    public function show(string $id, GetCustomerInterface $query)
     {
-        $customer = $handler->handle($id);
+        try {
+            $customer = ($query)($id);
+        } catch (ApplicationException $exception) {
+            return $this->apiError($exception->getMessage());
+        }
 
-        return $this->apiSuccess([$customer]);
+        return $this->apiSuccess($customer);
     }
 
-    public function update(string $id, UpdateRequest $request, UpdateCustomerHandler $handler)
+    public function update(string $id, UpdateRequest $request, UpdateCustomerInterface $command)
     {
         $dto = UpdateCustomerDTO::fromArray($id, $request->validated());
 
-        $command = new UpdateCustomerCommand($dto);
-        $handler->handle($command);
+        try{
+            ($command)($dto);
+
+        } catch (CustomerNotFoundException $exception) {
+
+            return $this->apiNotFound($exception->getMessage());
+        }
 
         return $this->apiAccepted();
     }
 
-    public function remove(string $id, RemoveCustomerHandler $handler)
+    public function remove(string $id, RemoveCustomerInterface $command)
     {
         $dto = RemoveCustomerDTO::fromArray($id);
 
-        $command = new RemoveCustomerCommand($dto);
-        $handler->handle($command);
+        try{
+            ($command)($dto);
+
+        } catch (CustomerNotFoundException $exception) {
+
+            return $this->apiNotFound($exception->getMessage());
+        }
 
         return $this->apiAccepted();
     }

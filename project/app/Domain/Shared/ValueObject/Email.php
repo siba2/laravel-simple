@@ -2,7 +2,8 @@
 
 namespace App\Domain\Shared\ValueObject;
 
-use DomainException;
+use App\Domain\Shared\Exceptions\DomainErrorCode;
+use App\Domain\Shared\Exceptions\DomainException;
 
 final class Email
 {
@@ -13,10 +14,13 @@ final class Email
         $this->value = $value;
     }
 
+    /**
+     * @throws DomainException
+     */
     public static function fromString(string $email): self
     {
         if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new DomainException("Invalid email address: {$email}");
+            throw new DomainException(DomainErrorCode::EMAIL_IS_INVALID);
         }
 
         return new self($email);

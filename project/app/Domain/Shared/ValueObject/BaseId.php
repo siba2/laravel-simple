@@ -5,23 +5,28 @@ declare(strict_types=1);
 
 namespace App\Domain\Shared\ValueObject;
 
-use InvalidArgumentException;
+use App\Domain\Shared\Exceptions\DomainErrorCode;
+use App\Domain\Shared\Exceptions\DomainException;
 
 abstract class BaseId
 {
     protected string $value;
 
+    /**
+     * @throws DomainException
+     */
     final protected function __construct(string $value)
     {
         if (!static::isValid($value)) {
-            throw new InvalidArgumentException(
-                sprintf('Invalid %s value', static::class)
-            );
+            throw new DomainException(DomainErrorCode::ID_IS_INVALID);
         }
 
         $this->value = $value;
     }
 
+    /**
+     * @throws DomainException
+     */
     final public static function fromString(string $value): static
     {
         return new static($value);

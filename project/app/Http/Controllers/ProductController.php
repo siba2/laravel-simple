@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Application\Product\Command\CreateProductCommand;
-use App\Application\Product\Command\RemoveProductCommand;
-use App\Application\Product\Command\UpdateProductCommand;
+use App\API\Command\CreateProductInterface;
+use App\API\Command\RemoveProductInterface;
+use App\API\Command\UpdateProductInterface;
+use App\API\Query\GetAllProductsInterface;
+use App\API\Query\GetProductInterface;
 use App\Application\Product\DTO\CreateProductDTO;
 use App\Application\Product\DTO\ProductFilter;
 use App\Application\Product\DTO\RemoveProductDTO;
 use App\Application\Product\DTO\UpdateProductDTO;
-use App\Application\Product\Handler\CreateProductHandler;
-use App\Application\Product\Handler\GetAllProductHandler;
-use App\Application\Product\Handler\GetProductHandler;
-use App\Application\Product\Handler\RemoveProductHandler;
-use App\Application\Product\Handler\UpdateProductHandler;
-use App\Application\Product\Query\GetAllProductQuery;
+use App\Application\Product\Exceptions\ProductNotFoundException;
+use App\Application\Shared\Exceptions\ApplicationException;
 use App\Http\Requests\Product\CreateRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use Illuminate\Http\Request;
@@ -22,49 +20,63 @@ use Illuminate\Http\Request;
 final class ProductController extends ApiController
 {
 
-    public function getAll(Request $request, GetAllProductHandler $handler)
+    public function getAll(Request $request, GetAllProductsInterface $query)
     {
         $filter = ProductFilter::fromArray($request->query());
 
-        $query = new GetAllProductQuery($filter);
-        $customers = $handler->handle($query);
+        $customers = ($query)($filter);
 
         return $this->apiSuccess($customers);
     }
 
-    public function store(CreateRequest $request, CreateProductHandler $handler)
+    public function store(CreateRequest $request, CreateProductInterface $command)
     {
         $dto = CreateProductDTO::fromArray($request->validated());
 
-        $command = new CreateProductCommand($dto);
-        $product = $handler->handle($command);
+        $productId = ($command)($dto);
 
-        return $this->apiCreated($product);
+        return $this->apiCreated($productId->value());
     }
 
-    public function show(string $id, GetProductHandler $handler)
+    public function show(string $id, GetProductInterface $query)
     {
-        $product = $handler->handle($id);
+        try {
+            $product = ($query)($id);
 
-        return $this->apiSuccess([$product]);
+        } catch (ApplicationException $exception) {
+
+            return $this->apiError($exception->getMessage());
+        }
+
+        return $this->apiSuccess($product);
     }
 
-    public function update(string $id, UpdateRequest $request, UpdateProductHandler $handler)
+    public function update(string $id, UpdateRequest $request, UpdateProductInterface $command)
     {
         $dto = UpdateProductDTO::fromArray($id, $request->validated());
 
-        $command = new UpdateProductCommand($dto);
-        $handler->handle($command);
+        try{
+            ($command)($dto);
+
+        } catch (ProductNotFoundException $exception) {
+
+            return $this->apiNotFound($exception->getMessage());
+        }
 
         return $this->apiAccepted();
     }
 
-    public function remove(string $id, RemoveProductHandler $handler)
+    public function remove(string $id, RemoveProductInterface $command)
     {
         $dto = RemoveProductDTO::fromArray($id);
 
-        $command = new RemoveProductCommand($dto);
-        $handler->handle($command);
+        try{
+            ($command)($dto);
+
+        } catch (ProductNotFoundException $exception) {
+
+            return $this->apiNotFound($exception->getMessage());
+        }
 
         return $this->apiAccepted();
     }
