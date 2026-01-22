@@ -6,8 +6,8 @@ namespace App\Application\Customer\Command;
 
 use App\API\Command\RemoveCustomerInterface;
 use App\Application\Customer\DTO\RemoveCustomerDTO;
-use App\Application\Customer\Exceptions\CustomerNotFoundException;
 use App\Application\Customer\Service\CustomerService;
+use App\Application\Exceptions\CustomerNotFoundException;
 
 final readonly class RemoveCustomerCommand implements RemoveCustomerInterface
 {

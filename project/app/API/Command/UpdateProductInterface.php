@@ -2,8 +2,8 @@
 
 namespace App\API\Command;
 
+use App\Application\Exceptions\ProductNotFoundException;
 use App\Application\Product\DTO\UpdateProductDTO;
-use App\Application\Product\Exceptions\ProductNotFoundException;
 
 interface UpdateProductInterface
 {

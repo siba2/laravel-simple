@@ -11,7 +11,7 @@ use App\Application\Customer\DTO\CreateCustomerDTO;
 use App\Application\Customer\DTO\CustomerFilter;
 use App\Application\Customer\DTO\RemoveCustomerDTO;
 use App\Application\Customer\DTO\UpdateCustomerDTO;
-use App\Application\Customer\Exceptions\CustomerNotFoundException;
+use App\Application\Exceptions\CustomerNotFoundException;
 use App\Application\Shared\Exceptions\ApplicationException;
 use App\Domain\Shared\Exceptions\DomainException;
 use App\Http\Requests\Customer\CreateRequest;

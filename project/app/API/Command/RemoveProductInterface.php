@@ -2,8 +2,8 @@
 
 namespace App\API\Command;
 
+use App\Application\Exceptions\ProductNotFoundException;
 use App\Application\Product\DTO\RemoveProductDTO;
-use App\Application\Product\Exceptions\ProductNotFoundException;
 
 interface RemoveProductInterface
 {

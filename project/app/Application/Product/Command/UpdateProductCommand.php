@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Application\Product\Command;
 
 use App\API\Command\UpdateProductInterface;
+use App\Application\Exceptions\ProductNotFoundException;
 use App\Application\Product\DTO\UpdateProductDTO;
-use App\Application\Product\Exceptions\ProductNotFoundException;
 use App\Application\Product\Service\ProductService;
 
 final readonly class UpdateProductCommand implements UpdateProductInterface

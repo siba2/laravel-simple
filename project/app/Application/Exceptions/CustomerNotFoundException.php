@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-namespace App\Application\Customer\Exceptions;
+namespace App\Application\Exceptions;
 
 use App\Application\Shared\Exceptions\ApplicationErrorCode;
 use App\Application\Shared\Exceptions\ApplicationException;

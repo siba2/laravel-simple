@@ -2,32 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use App\Application\Order\Command\CreateOrderCommand;
+use App\API\Command\CreateOrderInterface;
+use App\API\Query\GetAllOrdersInterface;
+use App\API\Query\GetOrderInterface;
+use App\Application\Exceptions\CustomerNotFoundException;
+use App\Application\Exceptions\ProductNotFoundException;
 use App\Application\Order\DTO\CreateOrderDTO;
-use App\Application\Order\Handler\CreateOrderHandler;
+use App\Application\Order\DTO\OrderFilter;
+use App\Application\Shared\Exceptions\ApplicationException;
 use App\Http\Requests\Order\CreateRequest;
+use Illuminate\Http\Request;
 
 final class OrderController extends ApiController
 {
 
-    public function getAll()
+    public function getAll(Request $request, GetAllOrdersInterface $query)
     {
+        $filter = OrderFilter::fromArray($request->query());
 
+        $orders = ($query)($filter);
+
+        return $this->apiSuccess($orders);
     }
 
-    public function store(CreateRequest $request, CreateOrderHandler $handler)
+    public function store(CreateRequest $request, CreateOrderInterface $command)
     {
         $dto = CreateOrderDTO::fromArray($request->validated());
 
-        $command = new CreateOrderCommand($dto);
-        $order = $handler->handle($command); //todo try catch
+        try {
+            $orderId = ($command)($dto);
 
-        return $this->apiCreated($order);
+        } catch (CustomerNotFoundException|ProductNotFoundException $exception) {
+
+            return $this->apiError($exception->getMessage());
+        }
+
+        return $this->apiCreated($orderId->value());
     }
 
-    public function show(string $id)
+    public function show(string $id, GetOrderInterface $query)
     {
+        try{
+            $order = ($query)($id);
 
+        } catch (ApplicationException $exception) {
+
+            return $this->apiError($exception->getMessage());
+        }
+
+        return $this->apiSuccess($order);
     }
 
     public function update(string $id)

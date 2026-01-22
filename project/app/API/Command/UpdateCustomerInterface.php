@@ -3,7 +3,7 @@
 namespace App\API\Command;
 
 use App\Application\Customer\DTO\UpdateCustomerDTO;
-use App\Application\Customer\Exceptions\CustomerNotFoundException;
+use App\Application\Exceptions\CustomerNotFoundException;
 
 interface UpdateCustomerInterface
 {

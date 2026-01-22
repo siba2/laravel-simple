@@ -6,8 +6,8 @@ namespace App\Application\Customer\Command;
 
 use App\API\Command\UpdateCustomerInterface;
 use App\Application\Customer\DTO\UpdateCustomerDTO;
-use App\Application\Customer\Exceptions\CustomerNotFoundException;
 use App\Application\Customer\Service\CustomerService;
+use App\Application\Exceptions\CustomerNotFoundException;
 
 final readonly class UpdateCustomerCommand implements UpdateCustomerInterface
 {
