@@ -23,9 +23,9 @@ class CreateRequest extends ApiRequest
     {
         return [
             'customerId' => 'required',
-            'items' => 'required',
-            'items.*.productId' => ['required'],
-            'items.*.quantity' => ['required', 'integer', 'min:1'],
+            'products' => 'required',
+            'products.*.productId' => ['required'],
+            'products.*.quantity' => ['required', 'integer', 'min:1'],
         ];
     }
 }

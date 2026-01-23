@@ -13,6 +13,7 @@ use App\Application\Product\DTO\ProductFilter;
 use App\Application\Product\DTO\RemoveProductDTO;
 use App\Application\Product\DTO\UpdateProductDTO;
 use App\Application\Shared\Exceptions\ApplicationException;
+use App\Domain\Shared\Exceptions\DomainException;
 use App\Http\Requests\Product\CreateRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use Illuminate\Http\Request;
@@ -31,7 +32,13 @@ final class ProductController extends ApiController
 
     public function store(CreateRequest $request, CreateProductInterface $command)
     {
-        $dto = CreateProductDTO::fromArray($request->validated());
+        try {
+            $dto = CreateProductDTO::fromArray($request->validated());
+
+        } catch (DomainException $exception) {
+
+            return $this->apiUnprocessableEntity($exception->getMessage());
+        }
 
         $productId = ($command)($dto);
 

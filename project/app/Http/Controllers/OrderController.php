@@ -10,6 +10,7 @@ use App\Application\Exceptions\ProductNotFoundException;
 use App\Application\Order\DTO\CreateOrderDTO;
 use App\Application\Order\DTO\OrderFilter;
 use App\Application\Shared\Exceptions\ApplicationException;
+use App\Domain\Shared\Exceptions\DomainException;
 use App\Http\Requests\Order\CreateRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -28,12 +29,13 @@ final class OrderController extends ApiController
 
     public function store(CreateRequest $request, CreateOrderInterface $command): JsonResponse
     {
-
-        $dto = CreateOrderDTO::fromArray($request->validated());
-
         try {
+            $dto = CreateOrderDTO::fromArray($request->validated());
+
             $orderId = ($command)($dto);
 
+        } catch (DomainException $exception) {
+            return $this->apiUnprocessableEntity($exception->getMessage());
         } catch (CustomerNotFoundException|ProductNotFoundException $exception) {
 
             return $this->apiError($exception->getMessage());

@@ -5,7 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a4069b5-0f5d-4e83-beba-c98ffee3392b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/project/app/Domain/Order/ValueObject/OrderProductId.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Customer/Query/GetAllCustomerQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Customer/Query/GetAllCustomersQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Order/Command/CreateOrderCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Order/Command/CreateOrderCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Order/DTO/CreateOrderDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Order/DTO/CreateOrderDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/Command/CreateProductCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/Command/CreateProductCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Application/Product/DTO/CreateProductDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Application/Product/DTO/CreateProductDTO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Order/Entity/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Order/Entity/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Order/Entity/OrderProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Order/Entity/OrderProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Shared/Exceptions/DomainErrorCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Shared/Exceptions/DomainErrorCode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Shared/ValueObject/Currency.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Shared/ValueObject/Currency.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Domain/Shared/ValueObject/Money.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Domain/Shared/ValueObject/Money.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Http/Requests/Order/CreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Requests/Order/CreateRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent/Order/OrderModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent/Order/OrderModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent/Order/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent/Order/OrderRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent/Product/ProductModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Infrastructure/Persistence/Eloquent/Product/ProductModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Providers/AppServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +226,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.29346.257" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.30387.85" />
       </set>
     </attachedChunks>
   </component>
@@ -234,6 +252,8 @@
       <workItem from="1768905128361" duration="6083000" />
       <workItem from="1768978558328" duration="6247000" />
       <workItem from="1769064622729" duration="21000" />
+      <workItem from="1769064965062" duration="8046000" />
+      <workItem from="1769154729349" duration="2849000" />
     </task>
     <servers />
   </component>

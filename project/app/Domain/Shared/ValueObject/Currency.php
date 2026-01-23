@@ -5,6 +5,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Shared\ValueObject;
 
+use App\Domain\Shared\Exceptions\DomainErrorCode;
+use App\Domain\Shared\Exceptions\DomainException;
+
 final class Currency
 {
     private const SUPPORTED = [
@@ -16,18 +19,19 @@ final class Currency
 
     private string $code;
 
+    /**
+     * @throws DomainException
+     */
     public function __construct(string $code)
     {
         $code = strtoupper($code);
 
         if (!preg_match('/^[A-Z]{3}$/', $code)) {
-            //todo
-            throw new \InvalidArgumentException('Invalid currency code format');
+            throw new DomainException(DomainErrorCode::CURRENCY_IS_INVALID);
         }
 
         if (!in_array($code, self::SUPPORTED, true)) {
-            //todo
-            throw new \InvalidArgumentException('Unsupported currency');
+            throw new DomainException(DomainErrorCode::CURRENCY_IS_INVALID);
         }
 
         $this->code = $code;
@@ -63,6 +67,9 @@ final class Currency
         return $this->code;
     }
 
+    /**
+     * @throws DomainException
+     */
     public static function fromArray(string $currency): self
     {
         return new self($currency);

@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace App\Application\Order\DTO;
 
 use App\Domain\Customer\ValueObject\CustomerId;
+use App\Domain\Shared\Exceptions\DomainException;
 
 final readonly class CreateOrderDTO
 {
@@ -15,6 +16,9 @@ final readonly class CreateOrderDTO
         public array $items,
     ) {}
 
+    /**
+     * @throws DomainException
+     */
     public static function fromArray(array $data): self
     {
         return new self(

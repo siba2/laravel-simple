@@ -28,6 +28,6 @@ final readonly class CreateProductCommand implements CreateProductInterface
 
         $this->service->create($product);
 
-        return $product;
+        return $id;
     }
 }

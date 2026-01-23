@@ -9,6 +9,7 @@ use App\Application\Order\DTO\OrderFilter;
 use App\Domain\Order\Entity\Order;
 use App\Domain\Order\ValueObject\OrderId;
 use App\Domain\Order\ValueObject\OrderStatus;
+use App\Infrastructure\Persistence\Eloquent\Product\ProductModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -31,9 +32,9 @@ final class OrderModel extends Model
         'status' => OrderStatus::class,
     ];
 
-    public function items(): HasMany
+    public function products(): HasMany
     {
-        return $this->hasMany(OrderItemModel::class, 'order_id');
+        return $this->hasMany(ProductModel::class);
     }
 
     public function scopeFilter($query, OrderFilter $filter)

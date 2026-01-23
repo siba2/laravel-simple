@@ -8,7 +8,7 @@ use App\API\Query\GetAllCustomersInterface;
 use App\Application\Customer\DTO\CustomerFilter;
 use App\Domain\Customer\Reader\CustomerReaderInterface;
 
-final readonly class GetAllCustomerQuery implements GetAllCustomersInterface
+final readonly class GetAllCustomersQuery implements GetAllCustomersInterface
 {
     public function __construct(private CustomerReaderInterface $reader)
     {

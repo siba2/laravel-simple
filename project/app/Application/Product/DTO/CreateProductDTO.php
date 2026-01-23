@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 namespace App\Application\Product\DTO;
 
+use App\Domain\Shared\Exceptions\DomainException;
 use App\Domain\Shared\ValueObject\Currency;
 use App\Domain\Shared\ValueObject\Money;
 
@@ -15,6 +16,9 @@ final readonly class CreateProductDTO
         public Money $price
     ) {}
 
+    /**
+     * @throws DomainException
+     */
     public static function fromArray(array $data): self
     {
         $price = new Money((int) $data['price'] * 100, Currency::fromArray($data['currency']));

@@ -13,6 +13,7 @@ use App\Application\Order\Service\OrderService;
 use App\Application\Product\Service\ProductService;
 use App\Domain\Order\Entity\Order;
 use App\Domain\Order\ValueObject\OrderId;
+use App\Domain\Order\ValueObject\OrderProductId;
 use App\Domain\Order\ValueObject\OrderStatus;
 
 final readonly class CreateOrderCommand implements CreateOrderInterface
@@ -40,7 +41,7 @@ final readonly class CreateOrderCommand implements CreateOrderInterface
             status: OrderStatus::PENDING
         );
 
-       // $order = $this->addProducts($order, $dto);
+        $order = $this->addProducts($order, $dto);
 
         $this->service->create($order);
 
@@ -48,7 +49,7 @@ final readonly class CreateOrderCommand implements CreateOrderInterface
     }
 
     /**
-     * @throws ProductNotFoundException
+     * @throws ProductNotFoundException|\App\Domain\Shared\Exceptions\DomainException
      */
     private function addProducts(Order $order, CreateOrderDTO $dto): Order
     {
@@ -59,7 +60,9 @@ final readonly class CreateOrderCommand implements CreateOrderInterface
                 throw new ProductNotFoundException($item->productId);
             }
 
-            $order->addProduct($product, $item->quantity);
+            $orderProductId = OrderProductId::generate();
+
+            $order->addProduct($orderProductId, $product, $item->quantity);
         }
 
         return $order;

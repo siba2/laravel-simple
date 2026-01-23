@@ -12,4 +12,5 @@ enum DomainErrorCode: string
     case CUSTOMER_NOT_FOUND = 'customer_not_found';
     case EMAIL_IS_INVALID = 'email_is_invalid';
     case ID_IS_INVALID = 'id_is_invalid';
+    case CURRENCY_IS_INVALID = 'currency_is_invalid';
 }

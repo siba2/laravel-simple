@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Order\Entity;
 
+use App\Domain\Order\ValueObject\OrderProductId;
 use App\Domain\Product\Entity\Product;
 use App\Domain\Shared\ValueObject\Money;
 
@@ -13,6 +14,7 @@ final class OrderProduct
     private Money $totalPrice;
 
     public function __construct(
+        private OrderProductId $id,
         private Product $product,
         private int $quantity
     ) {
@@ -37,5 +39,10 @@ final class OrderProduct
     public function totalPrice(): Money
     {
         return $this->totalPrice;
+    }
+
+    public function getId(): OrderProductId
+    {
+        return $this->id;
     }
 }

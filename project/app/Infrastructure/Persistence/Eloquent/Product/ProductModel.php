@@ -58,7 +58,7 @@ final class ProductModel extends Model
             name: $model->name,
             price: new Money(
                 amount: $model->amount,
-                currency: $model->currency
+                currency: Currency::fromArray($model->currency)
             ),
         );
     }

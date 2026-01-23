@@ -6,6 +6,7 @@ namespace App\Domain\Order\Entity;
 
 use App\Domain\Customer\Entity\Customer;
 use App\Domain\Order\ValueObject\OrderId;
+use App\Domain\Order\ValueObject\OrderProductId;
 use App\Domain\Order\ValueObject\OrderStatus;
 use App\Domain\Product\Entity\Product;
 use App\Domain\Shared\ValueObject\Currency;
@@ -46,9 +47,9 @@ final class Order
         return $this->id;
     }
 
-    public function addProduct(Product $product, int $quantity): void
+    public function addProduct(OrderProductId $orderProductId, Product $product, int $quantity): void
     {
-        $this->products[] = new OrderProduct($product, $quantity);
+        $this->products[] = new OrderProduct($orderProductId, $product, $quantity);
     }
 
     /**

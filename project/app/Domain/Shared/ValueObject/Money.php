@@ -48,8 +48,9 @@ final class Money
     public function subtract(self $money): self
     {
         $this->assertSameCurrency($money);
+dump($money);
 
-        if ($money->amount > $this->amount) {
+        if ($money->amount > $this->amount) {//todo
             throw new \InvalidArgumentException('Resulting amount cannot be negative');
         }
 
@@ -80,7 +81,7 @@ final class Money
 
     private function assertSameCurrency(self $money): void
     {
-        if ($this->currency !== $money->currency) {
+        if (!$this->currency->equals( $money->currency)) {
             //todo
             throw new \InvalidArgumentException('Currencies must be the same');
         }
