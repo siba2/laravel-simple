@@ -12,22 +12,28 @@ use App\API\Command\RemoveProductInterface;
 use App\API\Command\UpdateCustomerInterface;
 use App\API\Command\UpdateProductInterface;
 use App\API\Query\GetAllCustomersInterface;
+use App\API\Query\GetAllOrdersInterface;
 use App\API\Query\GetCustomerInterface;
+use App\API\Query\GetOrderInterface;
 use App\Application\Customer\Command\CreateCustomerCommand;
 use App\Application\Customer\Command\RemoveCustomerCommand;
 use App\Application\Customer\Command\UpdateCustomerCommand;
 use App\Application\Customer\Query\GetAllCustomersQuery;
 use App\Application\Customer\Query\GetCustomerQuery;
 use App\Application\Order\Command\CreateOrderCommand;
+use App\Application\Order\Query\GetAllOrderQuery;
+use App\Application\Order\Query\GetOrderQuery;
 use App\Application\Product\Command\CreateProductCommand;
 use App\Application\Product\Command\RemoveProductCommand;
 use App\Application\Product\Command\UpdateProductCommand;
 use App\Domain\Customer\Reader\CustomerReaderInterface;
 use App\Domain\Customer\Repository\CustomerRepositoryInterface;
+use App\Domain\Order\Reader\OrderReaderInterface;
 use App\Domain\Order\Repositories\OrderRepositoryInterface;
 use App\Domain\Product\Repository\ProductRepositoryInterface;
 use App\Infrastructure\Persistence\Eloquent\Customer\CustomerReader;
 use App\Infrastructure\Persistence\Eloquent\Customer\CustomerRepository;
+use App\Infrastructure\Persistence\Eloquent\Order\OrderReader;
 use App\Infrastructure\Persistence\Eloquent\Order\OrderRepository;
 use App\Infrastructure\Persistence\Eloquent\Product\ProductRepository;
 use Illuminate\Support\ServiceProvider;
@@ -62,9 +68,11 @@ class AppServiceProvider extends ServiceProvider
          */
 
         $this->app->bind(CreateOrderInterface::class, CreateOrderCommand::class);
+        $this->app->bind(GetAllOrdersInterface::class, GetAllOrderQuery::class);
+        $this->app->bind(GetOrderInterface::class, GetOrderQuery::class);
 
         $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
-        $this->app->bind(CustomerReaderInterface::class, CustomerReader::class);
+        $this->app->bind(OrderReaderInterface::class, OrderReader::class);
     }
 
     public function boot(): void

@@ -15,6 +15,7 @@ use App\Domain\Order\Entity\Order;
 use App\Domain\Order\ValueObject\OrderId;
 use App\Domain\Order\ValueObject\OrderProductId;
 use App\Domain\Order\ValueObject\OrderStatus;
+use App\Domain\Shared\Exceptions\DomainException;
 
 final readonly class CreateOrderCommand implements CreateOrderInterface
 {
@@ -38,7 +39,8 @@ final readonly class CreateOrderCommand implements CreateOrderInterface
         $order = Order::create(
             id: $id,
             customer: $customer,
-            status: OrderStatus::PENDING
+            status: OrderStatus::PENDING,
+            currency: $dto->currency
         );
 
         $order = $this->addProducts($order, $dto);
@@ -49,7 +51,8 @@ final readonly class CreateOrderCommand implements CreateOrderInterface
     }
 
     /**
-     * @throws ProductNotFoundException|\App\Domain\Shared\Exceptions\DomainException
+     * @throws DomainException
+     * @throws ProductNotFoundException
      */
     private function addProducts(Order $order, CreateOrderDTO $dto): Order
     {

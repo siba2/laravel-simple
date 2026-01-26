@@ -57,6 +57,7 @@ final class OrderModel extends Model
             id: OrderId::fromString($model->id),
             customer: $model->customer_id,
             status: $model->status,
+            currency: $model->currency
         );
     }
 }

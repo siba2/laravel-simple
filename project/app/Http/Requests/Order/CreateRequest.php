@@ -26,6 +26,7 @@ class CreateRequest extends ApiRequest
             'products' => 'required',
             'products.*.productId' => ['required'],
             'products.*.quantity' => ['required', 'integer', 'min:1'],
+            'currency' => ['required', 'string', 'min:3', 'max:3'],
         ];
     }
 }

@@ -8,9 +8,9 @@ namespace App\Infrastructure\Persistence\Eloquent\Order;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-final class OrderItemModel extends Model
+final class OrderProductsModel extends Model
 {
-    protected $table = 'order_items';
+    protected $table = 'order_products';
 
     protected $keyType = 'string';
     public $incrementing = false;

@@ -20,26 +20,29 @@ final class Order
     private function __construct(
         private OrderId $id,
         private Customer $customer,
-        private OrderStatus $status
+        private OrderStatus $status,
+        private Currency $currency
     ) {}
 
 
     public static function create(
         OrderId $id,
         Customer $customer,
-        OrderStatus $status
+        OrderStatus $status,
+        Currency $currency
     ): self
     {
-        return new self($id, $customer, $status);
+        return new self($id, $customer, $status, $currency);
     }
 
     public static function from(
         OrderId $id,
         Customer $customer,
-        OrderStatus $status
+        OrderStatus $status,
+        Currency $currency
     ):self
     {
-        return new self($id, $customer, $status);
+        return new self($id, $customer, $status, $currency);
     }
 
     public function id(): OrderId
@@ -62,7 +65,7 @@ final class Order
 
     public function totalPrice(): Money
     {
-        $total = new Money(0, new Currency('PLN')); //todo pln
+        $total = new Money(0, $this->getCurrency());
 
         foreach ($this->products as $item) {
             $total = $total->add($item->totalPrice());
@@ -84,5 +87,10 @@ final class Order
     public function setStatus(OrderStatus $status): void
     {
         $this->status = $status;
+    }
+
+    public function getCurrency(): Currency
+    {
+        return $this->currency;
     }
 }

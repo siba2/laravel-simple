@@ -7,6 +7,7 @@ namespace App\Application\Order\DTO;
 
 use App\Domain\Customer\ValueObject\CustomerId;
 use App\Domain\Shared\Exceptions\DomainException;
+use App\Domain\Shared\ValueObject\Currency;
 
 final readonly class CreateOrderDTO
 {
@@ -14,6 +15,7 @@ final readonly class CreateOrderDTO
         public CustomerId $customerId,
         /** @var OrderItemDTO[] */
         public array $items,
+        public Currency $currency,
     ) {}
 
     /**
@@ -26,7 +28,8 @@ final readonly class CreateOrderDTO
             array_map(
                 fn ($products) => OrderItemDTO::fromArray($products),
                 $data['products']
-            )
+            ),
+            new Currency($data['currency']),
         );
     }
 }

@@ -7,7 +7,6 @@ namespace App\Infrastructure\Persistence\Eloquent\Order;
 
 use App\Domain\Order\Entity\Order;
 use App\Domain\Order\Repositories\OrderRepositoryInterface;
-use App\Infrastructure\Persistence\Eloquent\Product\ProductModel;
 
 final class OrderRepository implements OrderRepositoryInterface
 {
@@ -18,13 +17,13 @@ final class OrderRepository implements OrderRepositoryInterface
             [
                 'customer_id' => $order->getCustomer()->id()->value(),
                 'total_price' => $order->totalPrice()->amount(),
-                'currency' => $order->totalPrice()->currency(),
-                'status' => $order->getStatus()->value
+                'currency' => $order->getCurrency()->code(),
+                'status' => $order->getStatus()->value,
             ]
         );
 
         foreach ($order->products() as $product) {
-            OrderItemModel::updateOrCreate(
+            OrderProductsModel::updateOrCreate(
                 ['id' => $product->getId()->value()],
                 [
                     'order_id' => $model->id,
